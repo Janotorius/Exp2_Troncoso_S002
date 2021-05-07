@@ -49,6 +49,82 @@
   
       
     </nav>
+
+    <br><br><br>
+    <div class="container">
+      <form action="Inicio.html">
+        <h1 style="text-align: center;">Registro</h1>
+        <div class="row">
+          <div class="col-25">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre.." required autofocus>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="apellido">Apellido</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="apellido" name="Apellido" placeholder="Ingrese su apellido.."required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="Instrumento">Instrumento</label>
+          </div>
+          <div class="col-75">
+            <select id="instrumento" name="instrumento" required>
+              <optgroup label="Viento">
+              <option value="Quena">Quena</option>
+              <option value="Saxofon">Saxófon</option>
+              </optgroup>
+              <optgroup label="Cuerda">
+                <option value="Guitarra">Guitarra</option>
+                <option value="Charango">Charango</option>
+                <option value="Violín">Violín</option>
+                </optgroup>
+                <optgroup label="Percusión">
+                  <option value="Bateria">Bateria</option>
+                  </optgroup>
+                  <optgroup label="Otro">
+                    <option value="Bajo Electrico">Bajo Electrico</option>
+                    <option value="Tres Cubano">Tres Cubano</option>
+                    </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="lfecha">Fecha de nacimiento </label>
+          </div>
+          <div class="col-75">
+            <input type="date" id="fNac" name="fechaNac" min="1910-01-01" max="2200-12-31" required><br> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="correo">Correo</label>
+          </div>
+          <div class="col-75">
+            <input type="email" id="correo" name="Correo" placeholder="nombre@dominio.cl.."required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="comentario">Comentario</label>
+          </div>
+          <div class="col-75">
+            <textarea id="comentario" name="comentario" placeholder="Escribe algo.." style="height:200px"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Submit">
+        </div>
+        
+      </form>
+    </div>
     <footer>
         <p>
           Autor: Alejandro Troncoso<br>
