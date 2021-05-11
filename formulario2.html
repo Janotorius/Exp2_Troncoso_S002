@@ -10,7 +10,94 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script>
+      function CambiaColor(a)
+        {
+            a.style.background = "orange";
+        }
+        
+        function MostrarFecha() 
+        {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+<style>
+  input {
+      float: left;
+      width: 200px;
+      margin-bottom: 10px;
+  }
+
+  label {
+      clear: both;
+      float: left;
+      width: 180px;
+  }
+
+  button {
+      clear: both;
+      
+      width: 50px;
+  }
+
+  .error-control {
+      border: 1px solid red;
+  }
+
+  label.error {
+      color: red;
+      width: 300px;
+      font-size: 0.8em;
+      margin-top: -5px;
+      margin-bottom: 10px;
+  }
+</style>
+
+    <script>
+      $(function() 
+      {
+        $("#Interes").validate({
+             rules: {
+                    nombre:"required",
+                    apellido: "required",
+                     
+                    estiloMusical:"required",
+                   
+                 fono:"required",
+                    correo: {
+                        required: true,
+                        correo: true
+                    }
+                    
+                    
+                }, //rules
+            messages: {
+              nombre:{
+                required:'ingresa tu nombre', 
+              },
+              apellido:{
+                required:'Ingresa tu apellido'
+              },
+              estiloMusical:{
+                required: 'seleccione un estilo'
+              },
+              
+                fono: {
+                  required: 'Ingrese un número de celular',
+                    minlength: 'Cantidad de digitos insuficiente'
+                },
+                correo:{
+                  required: 'Ingresa tu correo electrónico',
+                    email: 'Formato de correo no válido'
+                }
+                
+                
+            }//messages
+        }); //$('#Interes').validate
+    }); //function
+
+  </script>
   </head>
 
   <body>
@@ -52,14 +139,14 @@
 
     <br><br><br>
     <div class="container">
-      <form action="Inicio.html">
-        <h1 style="text-align: center;">Registro</h1>
+      <form id="Interes"  action="Inicio.html">
+        <h1 style="text-align: center;">Interes</h1>
         <div class="row">
           <div class="col-25">
             <label for="nombre">Nombre</label>
           </div>
           <div class="col-75">
-            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre.." required autofocus>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre.." required autofocus >
           </div>
         </div>
         <div class="row">
@@ -72,35 +159,30 @@
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="Instrumento">Instrumento</label>
+            <label for="estiloMusical">Selecciona un género musical</label>
           </div>
           <div class="col-75">
-            <select id="instrumento" name="instrumento" required>
-              <optgroup label="Viento">
-              <option value="Quena">Quena</option>
-              <option value="Saxofon">Saxófon</option>
-              </optgroup>
-              <optgroup label="Cuerda">
-                <option value="Guitarra">Guitarra</option>
-                <option value="Charango">Charango</option>
-                <option value="Violín">Violín</option>
-                </optgroup>
-                <optgroup label="Percusión">
-                  <option value="Bateria">Bateria</option>
-                  </optgroup>
-                  <optgroup label="Otro">
-                    <option value="Bajo Electrico">Bajo Electrico</option>
-                    <option value="Tres Cubano">Tres Cubano</option>
-                    </optgroup>
+            <select id="estiloMusical" name="estiloMusical" required>
+              <option value="Reggaeton">Reggaeton</option>
+              <option value="Rock">Rock</option>a
+              <option value="Blues">Blues</option>
+              <option value="Ska">Ska</option>
+              <option value="Jazz">Jazz</option>
+              <option value="Disco">Disco</option>
+              <option value="Reggae">Reggae</option>
+              <option value="Electronica">Electronica</option>
+              <option value="Otro">Otro</option>
+                    
             </select>
           </div>
         </div>
+        
         <div class="row">
           <div class="col-25">
-            <label for="lfecha">Fecha de nacimiento </label>
+            <label>Telefono: </label> 
           </div>
           <div class="col-75">
-            <input type="date" id="fNac" name="fechaNac" min="1910-01-01" max="2200-12-31" required><br> 
+            <input type="text" name="fono" minlength="9" required> 
           </div>
         </div>
         <div class="row">
@@ -108,7 +190,7 @@
             <label for="correo">Correo</label>
           </div>
           <div class="col-75">
-            <input type="email" id="correo" name="Correo" placeholder="nombre@dominio.cl.."required>
+            <input type="email" id="correo" name="correo" placeholder="nombre@dominio.cl.."required>
           </div>
         </div>
         <div class="row">
@@ -116,15 +198,24 @@
             <label for="comentario">Comentario</label>
           </div>
           <div class="col-75">
-            <textarea id="comentario" name="comentario" placeholder="Escribe algo.." style="height:200px"></textarea>
+            <textarea id="comentario" name="comentario" placeholder="Escribe algo.." style="height:200px" onfocus="CambiaColor(this)"></textarea>
           </div>
         </div>
-        <div class="row">
-          <input type="submit" value="Submit">
+        <br>
+        <div style="text-align: center;">
+          <h4>Mostrar fecha y hora actual</h4>
+          <button onclick="MostrarFecha()">La fecha es?</button>
+          <p id="demo"></p>
         </div>
-        
+        <br>
+        <div class="row" >
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Limpiar">
+        </div>
+      
       </form>
     </div>
+    <br><br>
     <footer>
         <p>
           Autor: Alejandro Troncoso<br>

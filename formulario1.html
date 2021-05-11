@@ -69,7 +69,8 @@
                         required: true,
                         correo: true
                     },
-                    contraseña: "required",
+                    contraseña:"required"
+                  ,
                     contraseña2: {
                         required: true,
                         equalTo: "#contraseña"
@@ -79,7 +80,7 @@
             messages: {
               nombre:{
                 required:'ingresa tu nombre',
-                minlength:'caracteres insfucicientes'
+                minlength:'caracteres insuficientes'
                 
               },
               apellido:{
@@ -170,7 +171,7 @@
             <label for="apellido">Apellido</label>
           </div>
           <div class="col-75">
-            <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido.."required>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido.." required>
           </div>
         </div>
         <div class="row">
@@ -178,7 +179,7 @@
             <label for="Instrumento">Instrumento</label>
           </div>
           <div class="col-75">
-            <select id="instrumento" name="instrumento" placeholder="Seleccione un instrumento"required>
+            <select id="instrumento" name="instrumento" placeholder="Seleccione un instrumento" required>
               <optgroup label="Viento">
               <option value="Quena">Quena</option>
               <option value="Saxofon">Saxófon</option>
@@ -219,7 +220,7 @@
             <label for="contraseña">Contraseña</label>
           </div>
           <div class="col-75">
-            <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese contraseña.." minlength="6" >
+            <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese contraseña.." minlength="6" required >
           </div>
         </div>
         <div class="row">
@@ -227,7 +228,7 @@
             <label for="contraseña2">Reingresa Contraseña</label>
           </div>
           <div class="col-75">
-            <input type="password" id="contraseña2" name="contraseña2" placeholder="reingrese su contraseña" minlength="6" >
+            <input type="password" id="contraseña2" name="contraseña2" placeholder="reingrese su contraseña" minlength="6" required>
           </div>
         </div>
         <div class="row">
@@ -235,11 +236,12 @@
             <label for="comentario">Comentario</label>
           </div>
           <div class="col-75">
-            <textarea id="comentario" name="comentario" placeholder="Escribe algo.." style="height:200px"></textarea>
+            <textarea id="comentario" name="comentario" placeholder="Escribe algo.." style="height:200px" ></textarea>
           </div>
         </div>
         <div class="row">
-          <input type="submit" value="Submit">
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Limpiar">
         </div>
         
       </form>
